@@ -36,28 +36,29 @@ answer_count = 0
 
 # print("line cnt ", line_cnt)
 # print("random line ", rnd_line)
-# print("word is", word)
+print("word is", word)
 
 while (1 == 1):
     print()
 
     if answer_count >= 6:
-        print("GAME OVER!\nAnswer is", word)
+        print(Fore.RED + "GAME OVER!\n" + Fore.WHITE + "Answer is", word)
         break
-    dct = {}
 
+    dct = {}
     for ch in word:
         if ch in dct:
             dct[ch] = dct[ch] + 1
         else:
             dct[ch] = 1
-
     # print("dct")
     # print(dct)
+
     user_word = input("Please enter a word: ")
     print()
     if len(user_word) != 5:
-        print("please enter 5 letters words")
+        print(Fore.RED + "Invalid input! " +
+              Fore.WHITE + "please enter 5 letters words")
         continue
     else:
         answer_count += 1
@@ -79,5 +80,5 @@ while (1 == 1):
             print(Fore.WHITE + Style.DIM + ch, end="")
     print(Style.RESET_ALL)
     if user_word == word:
-        print("GAME CLEAR!")
+        print(Fore.BLUE + "\nGAME CLEAR!")
         break
