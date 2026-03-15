@@ -49,8 +49,8 @@ print("     words:", line_cnt)
 print("\nrules:")
 print("word must be 5 letters")
 print(Style.DIM + " x " + Style.NORMAL + "- no letter")
-print(Fore.YELLOW + " x " + Fore.WHITE + "- there is letter but different place")
-print(Fore.GREEN + " x " + Fore.WHITE + "- correct")
+print(Fore.LIGHTYELLOW_EX + " x " + Fore.WHITE + "- there is letter but different place")
+print(Fore.LIGHTGREEN_EX + " x " + Fore.WHITE + "- correct")
 print(Style.RESET_ALL, end="")
 
 # print("random line ", rnd_line)
@@ -86,10 +86,10 @@ while (1):
 
     for i, ch in enumerate(user_word):
         if word[i] == ch:
-            print(Fore.GREEN + Style.NORMAL + ch, end="")
+            print(Fore.LIGHTGREEN_EX + Style.NORMAL + ch, end="")
         elif ch in word:
             if dct[ch] != 0:
-                print(Fore.YELLOW + Style.NORMAL + ch, end="")
+                print(Fore.LIGHTYELLOW_EX + Style.NORMAL + ch, end="")
                 dct[ch] = dct[ch] - 1
             else:
                 print(Fore.WHITE + Style.DIM + ch, end="")
