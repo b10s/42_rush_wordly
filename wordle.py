@@ -30,7 +30,7 @@ def choose_word(line_cnt):
                 return line.strip()
     return "dummy"
 
-
+print(Style.RESET_ALL, end = "")
 if len(sys.argv) < 2:
     print("Usage: python3 wordle.py [dictionaty file]")
     exit(1)
@@ -64,8 +64,8 @@ print("     words:", line_cnt)
 print("\nrules:")
 print("word must be 5 letters")
 print(Style.DIM + " x " + Style.NORMAL + "- no letter")
-print(Fore.LIGHTYELLOW_EX + " x " + Fore.WHITE + "- there is letter but different place")
-print(Fore.LIGHTGREEN_EX + " x " + Fore.WHITE + "- correct")
+print(Fore.LIGHTYELLOW_EX + " x " + Style.RESET_ALL + "- there is letter but different place")
+print(Fore.LIGHTGREEN_EX + " x " + Style.RESET_ALL + "- correct")
 print(Style.RESET_ALL, end="")
 
 if DEBUG_MODE:
@@ -73,7 +73,7 @@ if DEBUG_MODE:
     print("word is", word)
 
 while (1):
-    print()
+    print(Style.RESET_ALL)
 
     if answer_count >= 6:
         print(Fore.RED + "GAME OVER!\n" + Fore.WHITE + "Answer is", word)
@@ -95,7 +95,7 @@ while (1):
     user_word = user_word.lower()
     print()
     if len(user_word) != 5:
-        print(Fore.RED + "Invalid input! " + Fore.WHITE + "please enter 5 letters word")
+        print(Fore.RED + "Invalid input! " + Style.RESET_ALL + "please enter 5 letters words")
         continue
     elif is_english_alphabets_only(user_word) == 0:
         print(Fore.RED + "Invalid input! " + Fore.WHITE + "please enter 5 letters English word")
