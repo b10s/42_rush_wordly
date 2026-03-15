@@ -6,6 +6,9 @@ import os
 
 DEBUG_MODE = "-debug" in sys.argv
 
+def is_english_alphabets_only(input_string):
+    return input_string.isascii() and input_string.isalpha()
+
 def count_lines_and_find_error(filepath):
     line_count = 0
     with open(filepath, 'r') as file:
@@ -89,9 +92,13 @@ while (1):
 
     print("Remaining attempts:",6- answer_count)
     user_word = input("Please enter a word: ")
+    user_word = user_word.lower()
     print()
     if len(user_word) != 5:
-        print(Fore.RED + "Invalid input! " + Fore.WHITE + "please enter 5 letters words")
+        print(Fore.RED + "Invalid input! " + Fore.WHITE + "please enter 5 letters word")
+        continue
+    elif is_english_alphabets_only(user_word) == 0:
+        print(Fore.RED + "Invalid input! " + Fore.WHITE + "please enter 5 letters English word")
         continue
     else:
         answer_count += 1
