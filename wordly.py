@@ -22,16 +22,21 @@ def choose_word(line_cnt):
 
 
 print("word must be 5 letters\n")
-print("rules:\n X - no letter \n ? - there is letter but different place \n O - correct")
+print("rules:")
+print(Style.DIM + " x " + Style.NORMAL + "- no letter")
+print(Fore.YELLOW + " x " + Fore.WHITE +
+      "- there is letter but different place")
+print(Fore.GREEN + " x " + Fore.WHITE + "- correct")
+print(Style.RESET_ALL, end="")
 filepath = "words.txt"
 line_cnt = count_lines(filepath)
 rnd_line = random.randint(1, line_cnt)
 word = choose_word(rnd_line)
 answer_count = 0
 
-print("line cnt ", line_cnt)
-print("random line ", rnd_line)
-print("word is", word)
+# print("line cnt ", line_cnt)
+# print("random line ", rnd_line)
+# print("word is", word)
 
 while (1 == 1):
     print()
@@ -50,8 +55,9 @@ while (1 == 1):
     # print("dct")
     # print(dct)
     user_word = input("Please enter a word: ")
+    print()
     if len(user_word) != 5:
-        print("please enter 5 letters words", end="")
+        print("please enter 5 letters words")
         continue
     else:
         answer_count += 1
@@ -71,7 +77,7 @@ while (1 == 1):
                 print(Fore.WHITE + Style.DIM + ch, end="")
         else:
             print(Fore.WHITE + Style.DIM + ch, end="")
-    print(Style.RESET_ALL, end="")
+    print(Style.RESET_ALL)
     if user_word == word:
-        print("\nGAME CLEAR!")
+        print("GAME CLEAR!")
         break
