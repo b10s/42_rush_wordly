@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 import random
 from colorama import Fore, Style
+import sys
+import os
 
+DEBUG_MODE = "-debug" in sys.argv
 
 def count_lines_and_find_error(filepath):
     line_count = 0
@@ -25,7 +28,16 @@ def choose_word(line_cnt):
     return "dummy"
 
 
-filepath = "words.txt"
+if len(sys.argv) < 2:
+    print("Usage: python3 wordle.py [dictionaty file]")
+    exit(1)
+
+filepath = sys.argv[1]
+
+if not os.path.exists(filepath):
+    print(f"Error: file'{filepath}'is not found")
+    exit(1)
+
 line_cnt = count_lines_and_find_error(filepath)
 
 if line_cnt == 0:
@@ -53,8 +65,9 @@ print(Fore.LIGHTYELLOW_EX + " x " + Fore.WHITE + "- there is letter but differen
 print(Fore.LIGHTGREEN_EX + " x " + Fore.WHITE + "- correct")
 print(Style.RESET_ALL, end="")
 
-# print("random line ", rnd_line)
-# print("word is", word)
+if DEBUG_MODE:
+    print("random line ", rnd_line)
+    print("word is", word)
 
 while (1):
     print()
@@ -69,8 +82,10 @@ while (1):
             dct[ch] = dct[ch] + 1
         else:
             dct[ch] = 1
-    # print("dct")
-    # print(dct)
+
+    if DEBUG_MODE:
+        print("dct")
+        print(dct)
 
     print("Remaining attempts:",6- answer_count)
     user_word = input("Please enter a word: ")
