@@ -122,4 +122,5 @@ while (1):
 
     if user_word == word:
         print(Fore.BLUE + "\nGAME CLEAR!")
+        print(Fore.BLUE + "\nGuesses made:", answer_count)
         break
