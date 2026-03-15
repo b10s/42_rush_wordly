@@ -36,7 +36,14 @@ rnd_line = random.randint(1, line_cnt)
 word = choose_word(rnd_line)
 answer_count = 0
 
-print("\ndictionary:",filepath)
+print(Fore.RED + " __        __              _ _")
+print(Fore.YELLOW + " \\ \\      / /__  _ __   __| | | ___")
+print(Fore.GREEN + "  \\ \\ /\\ / / _ \\| '__\\ / _` | |/ _ \\ ")
+print(Fore.CYAN + "   \\ V  V / (_) | |   | (_| | |  __/")
+print(Fore.MAGENTA + "    \\_/\\_/ \\___/|_|    \\__,_|_|\\___|")
+print(Style.RESET_ALL)
+
+print("dictionary:", filepath)
 print("     words:", line_cnt)
 
 print("\nrules:")
