@@ -72,6 +72,7 @@ while (1):
     # print("dct")
     # print(dct)
 
+    print("Remaining attempts:",6- answer_count)
     user_word = input("Please enter a word: ")
     print()
     if len(user_word) != 5:
